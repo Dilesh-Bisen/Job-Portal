@@ -1,0 +1,111 @@
+.App {
+  text-align: center;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  color: #333;
+}
+
+.job-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.job-item {
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.job-item h3 {
+  margin: 0 0 10px;
+  color: #007bff;
+}
+
+.job-form {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+.job-form input,
+.job-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.job-form button,
+.job-item button {
+  padding: 10px 20px;
+  margin: 5px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.job-form button {
+  background-color: #28a745;
+  color: white;
+}
+
+.job-item button.edit {
+  background-color: #007bff;
+  color: white;
+}
+
+.job-item button.delete {
+  background-color: #dc3545;
+  color: white;
+}
+
+.confirm-dialog {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.confirm-dialog-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.confirm-dialog-content h3 {
+  margin: 0 0 10px;
+  color: #333;
+}
+
+.confirm-dialog-content p {
+  margin: 0 0 20px;
+}
+
+.confirm-button {
+  background-color: #dc3545;
+  color: white;
+  margin-right: 10px;
+}
+
+.cancel-button {
+  background-color: #6c757d;
+  color: white;
+}
