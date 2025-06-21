@@ -5,6 +5,7 @@ import JobItem from './JobItem';
 
 const JobList = () => {
   const [jobs, setJobs] = useState([]);
+  const [searchQuery, setSearchQuery] = useState('');
 
   useEffect(() => {
     fetchJobs();
@@ -30,16 +31,46 @@ const JobList = () => {
     }
   };
 
+  const handleSearchChange = (e) => {
+    setSearchQuery(e.target.value);
+  };
+
   return (
-    <div>
-      <Link to="/add">
-        <button>Add New Job</button>
-      </Link>
-      <div className="job-list">
-        {jobs.map((job) => (
-          <JobItem key={job._id} job={job} deleteJob={deleteJob} />
-        ))}
-      </div>
+    <div className="job-portal-container">
+      <header className="portal-header">
+        <h1 className="portal-title">CareerSync Job Portal</h1>
+        <nav className="portal-nav">
+          <Link to="/add" className="nav-button">Post a Job</Link>
+        </nav>
+      </header>
+      <section className="hero-section">
+        <div className="hero-content">
+          <h2>Find Your Dream Job Today</h2>
+          <p>Join top companies hiring now. Explore exciting opportunities!</p>
+          <div className="search-bar">
+            <input
+              type="text"
+              placeholder="Search jobs by title, company, or location..."
+              value={searchQuery}
+              onChange={handleSearchChange}
+              className="search-input"
+            />
+            <button className="search-button">Search</button>
+          </div>
+        </div>
+      </section>
+      <section className="job-list-section">
+        <h3 className="section-title">Available Opportunities</h3>
+        <div className="job-grid">
+          {jobs.length > 0 ? (
+            jobs.map((job) => (
+              <JobItem key={job._id} job={job} deleteJob={deleteJob} />
+            ))
+          ) : (
+            <p className="no-jobs">No jobs available. Post a new job to get started!</p>
+          )}
+        </div>
+      </section>
     </div>
   );
 };
